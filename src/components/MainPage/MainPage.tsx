@@ -1,14 +1,18 @@
 import React from 'react';
+import Layout from '../common/Layout';
+import NavBar from '../NavBar/NavBar';
+import Board from './Board';
 
 const MainPage = () => {
 	return (
-		<div className="relative min-h-screen md:flex">
-			<div className="w-full">
-				<div className="w-full lg:h-48 border-solid border-b border-gray-200 bg-white lg:px-6 flex flex-col-reverse">
-					<h1 className="font-bold text-3xl pb-12">hello</h1>
+		<Layout>
+			<div className="w-full bg-gray-100 h-screen">
+				<div className="w-full lg:container lg:mx-auto">
+					<NavBar />
+					<Board />
 				</div>
 			</div>
-		</div>
+		</Layout>
 	);
 };
 

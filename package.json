@@ -1,6 +1,5 @@
 {
   "name": "crud",
-  "homepage":"https://kimzerovirus.github.io/community_react_app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

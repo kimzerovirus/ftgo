@@ -1,10 +1,14 @@
 # CRUD
-> 위지윅에디터(summernote)를 적용한 게시판
+## 📌*TODO Check List*
+
+- [ ] MUI
+- [ ] Wysiwyg [mui호환 위지윅 생각중](https://www.npmjs.com/package/react-mui-draft-wysiwyg)
 
 |   분야        | 사용기술       | 비고 |
 |--------------|------------|-----|
 |  Database  | postgresql |   |
 
+<!--
 ```
 spring.jpa.hibernate.ddl-auto=update
 ```
@@ -17,3 +21,4 @@ SQL을 포맷팅하여 출력해준다.
 spring.jpa.show-sql = true
 ```
 jpa 처리시 sql을 보여준다.
+-->

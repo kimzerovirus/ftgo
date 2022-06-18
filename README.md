@@ -1,6 +1,7 @@
 # SIMPLE BOARD
 > 프로젝트 목표 | 요즘 핫하다는 기술들을 최대한 맛보면서 게시판 구현해보기
 
+
 ## 📌*TODO Check List*
   *FRONTEND*  (REACT)
 - [x] Typescript

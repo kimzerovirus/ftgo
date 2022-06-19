@@ -15,9 +15,9 @@ class TodoController(
     @PostMapping
     fun addTodo(@RequestBody todoRequest: TodoRequest) = todoService.addTodo(todoRequest.todoWork)
 
-    @PutMapping(path = ["/{idx}"])
+    @PutMapping("/{idx}")
     fun updateTodo(@PathVariable("idx") idx: Long) = todoService.updateTodo(idx)
 
-    @DeleteMapping(path = ["/{idx}"])
+    @DeleteMapping("/{idx}")
     fun deleteTodo(@PathVariable("idx") idx: Long) = todoService.deleteTodo(idx)
 }

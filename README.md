@@ -12,6 +12,7 @@
 - [ ] GraphQL
 
 *BACKEND*  (SPRING BOOT)
+- [x] Kotlin
 - [x] OAuth2 (google, naver, kakao)
 - [x] JWT refresh token & access token
 - [x] Spring Data JPA

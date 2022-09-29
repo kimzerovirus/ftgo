@@ -1,4 +1,4 @@
-# SIMPLE BOARD
+<!-- # SIMPLE BOARD
 > 프로젝트 목표 | 요즘 핫하다는 기술들을 최대한 맛보면서 게시판 구현해보기
 
 
@@ -9,9 +9,8 @@
 - [x] MUI
 - [ ] wysiwyg ([mui호환 위지윅 생각중](https://www.npmjs.com/package/react-mui-draft-wysiwyg))
 - [ ] Private Router
-<!--
 - [ ] GraphQL
--->
+
 
 *BACKEND*  (SPRING BOOT)
 - [x] Kotlin
@@ -20,39 +19,16 @@
 - [x] Spring Data JPA
 - [ ] Java Mail Sender (이메일 인증)
 - [ ] WebSocket (알림 기능)
-<!--
+
 - [ ] GraphQL
 - [ ] OTP 로그인 (관리자페이지는 OTP로 로그인? ... 추후 고려)
--->
 
-<!--
+
+
 |   분야        | 사용기술       | 비고 |
 |--------------|------------|-----|
 |  Database  | postgresql |   |
--->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
 ```
 spring.jpa.hibernate.ddl-auto=update
 ```

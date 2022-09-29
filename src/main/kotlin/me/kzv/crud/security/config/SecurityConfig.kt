@@ -28,10 +28,16 @@ class SecurityConfig(
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
+            .csrf().disable()
+            .headers().frameOptions().disable()
+            .and()
             .authorizeRequests()
+            .antMatchers("/h2-console/**")
+            .permitAll()
+
             .antMatchers("/", "/users", "/login*")
             .permitAll()
-            .antMatchers("/mypage").hasRole("USER")
+            .antMatchers("/my-page").hasRole("USER")
             .antMatchers("/admin/**").hasRole("ADMIN")
             .anyRequest().authenticated()
             .and()

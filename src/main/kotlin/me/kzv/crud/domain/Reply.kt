@@ -1,4 +1,4 @@
-package me.kzv.crud.persistence
+package me.kzv.crud.domain
 
 import org.hibernate.annotations.GenericGenerator
 import javax.persistence.*
@@ -13,8 +13,8 @@ class Reply (
     var id: String? = null,
     val text: String,
     val replyer: String,
-    val depth: Int, // 0: 댓글, 1: 대댓글
-    val group: String, // group-uuid
+    val isDepth: Boolean, // false: 댓글, true: 대댓글
+    val replyGroup: String, // group-uuid
 
     @ManyToOne(fetch = FetchType.LAZY)
     val board: Board

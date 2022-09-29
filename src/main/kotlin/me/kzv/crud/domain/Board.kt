@@ -1,4 +1,4 @@
-package me.kzv.crud.persistence
+package me.kzv.crud.domain
 
 import javax.persistence.*
 

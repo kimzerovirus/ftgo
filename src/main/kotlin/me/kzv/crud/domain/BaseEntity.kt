@@ -1,4 +1,4 @@
-package me.kzv.crud.persistence
+package me.kzv.crud.domain
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate

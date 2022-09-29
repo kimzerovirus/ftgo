@@ -1,7 +1,7 @@
 package me.kzv.crud.service
 
-import me.kzv.crud.persistence.BoardRepository
-import me.kzv.crud.persistence.ReplyRepository
+import me.kzv.crud.repository.BoardRepository
+import me.kzv.crud.repository.ReplyRepository
 import org.springframework.stereotype.Service
 
 @Service

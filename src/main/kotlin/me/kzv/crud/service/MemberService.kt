@@ -1,6 +1,6 @@
 package me.kzv.crud.service
 
-import me.kzv.crud.persistence.MemberRepository
+import me.kzv.crud.repository.MemberRepository
 import org.springframework.stereotype.Service
 
 @Service

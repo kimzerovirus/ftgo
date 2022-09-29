@@ -7,5 +7,23 @@ import org.springframework.web.bind.annotation.GetMapping
 class ViewController {
 
     @GetMapping("/")
-    fun home() = "signin"
+    fun home() = "index"
+
+    @GetMapping("/login")
+    fun signin() = "signin"
+
+    @GetMapping("/signup")
+    fun signup() = "signup"
+
+    @GetMapping("/admin")
+    fun admin() = "admin"
+
+    @GetMapping("/my-page")
+    fun myPage() = "my-page"
+
+    @GetMapping("/register")
+    fun register() = "register"
+
+    @GetMapping("/edit")
+    fun edit() = "edit"
 }

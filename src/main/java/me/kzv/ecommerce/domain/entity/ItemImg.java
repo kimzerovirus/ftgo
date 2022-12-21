@@ -18,4 +18,6 @@ public class ItemImg extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
+
+    protected ItemImg() {}
 }

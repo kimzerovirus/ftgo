@@ -14,4 +14,6 @@ public class ItemSize {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
+
+    protected ItemSize() {}
 }

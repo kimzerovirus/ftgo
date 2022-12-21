@@ -12,4 +12,6 @@ public class ReviewReply  extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    protected ReviewReply() {}
 }

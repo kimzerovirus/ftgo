@@ -7,7 +7,7 @@ import me.kzv.ecommerce.domain.entity.member.Member;
 
 @Getter
 @Entity
-public class Delivery { // 배송지 주소
+public class Address { // 배송지 주소
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "address_id")
@@ -17,22 +17,22 @@ public class Delivery { // 배송지 주소
     private String detailAddress; // 상세 주소지
     private String zipcode; // 우편 번호
 
-    private String deliveryName; // 주소 이름
+    private String addressName; // 주소 이름
     private Boolean isRecent; // 최근 배송지 여부
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    protected Delivery(){}
+    protected Address(){}
 
     @Builder
-    public Delivery(Long id, String baseAddress, String detailAddress, String zipcode, String deliveryName, Boolean isRecent, Member member) {
+    public Address(Long id, String baseAddress, String detailAddress, String zipcode, String addressName, Boolean isRecent, Member member) {
         this.id = id;
         this.baseAddress = baseAddress;
         this.detailAddress = detailAddress;
         this.zipcode = zipcode;
-        this.deliveryName = deliveryName;
+        this.addressName = addressName;
         this.isRecent = isRecent;
         this.member = member;
     }

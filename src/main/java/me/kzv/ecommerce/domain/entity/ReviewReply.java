@@ -8,10 +8,11 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class ReviewReply  extends BaseEntity{
+public class ReviewReply extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    protected ReviewReply() {}
+    protected ReviewReply() {
+    }
 }

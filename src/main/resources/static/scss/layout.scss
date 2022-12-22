@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;600&display=swap");
+@import './variable.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+
+  .gnb {
+    width: 100%;
+    max-width: $maxWidth; // -40px 패딩 1280px
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav-menu {
+      display: flex;
+
+      a {
+        color: #2c2c2c;
+        font-size: 16px;
+        text-transform: capitalize;
+        padding: 10px 20px;
+        font-weight: 400;
+        transition: all 0.42s ease;
+        &:hover {
+          color: $mainColor;
+        }
+      }
+    }
+
+    .nav-icon {
+      display: flex;
+      align-items: center;
+
+      i {
+        margin-right: 20px;
+        color: #2c2c2c;
+        font-size: 25px;
+        font-weight: 400;
+        transition: all 0.42s ease;
+        &:hover {
+          transform: scale(1.1);
+          color: $mainColor;
+        }
+      }
+    }
+  }
+}
+
+#menu-icon {
+  font-size: 35px;
+  color: #2c2c2c;
+  z-index: 10001;
+  cursor: pointer;
+}

@@ -5,6 +5,7 @@ import lombok.Getter;
 import me.kzv.ecommerce.domain.entity.BaseTimeEntity;
 import me.kzv.ecommerce.domain.enums.AuthorityType;
 import me.kzv.ecommerce.domain.enums.GradeType;
+import me.kzv.ecommerce.utils.BooleanToYNConverter;
 
 @Entity
 @Getter
@@ -18,6 +19,7 @@ public abstract class Member extends BaseTimeEntity {
 
     private String email;
 
+    @Convert(converter = BooleanToYNConverter.class)
     private Boolean isVerifiedEmail; // TODO 로컬 가입시 -> 이메일 인증 필요
 
     private int point; // 적립금
@@ -29,4 +31,12 @@ public abstract class Member extends BaseTimeEntity {
     private GradeType gradeType; // 회원 등급
 
     protected Member() {}
+
+    protected Member(String email, Boolean isVerifiedEmail) {
+        this.email = email;
+        this.isVerifiedEmail = isVerifiedEmail;
+        this.point = 1000;
+        this.authorityType = AuthorityType.ROLE_USER;
+        this.gradeType = GradeType.IRON;
+    }
 }

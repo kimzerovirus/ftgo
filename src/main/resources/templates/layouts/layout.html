@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="setContent(content)">
+    <head>
+        <meta charset="UTF-8">
+        <link th:href="@{/css/layout.css}" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    </head>
+    <body>
+
+    <header>
+        <nav class="gnb">
+            <ul class="nav-menu">
+                <li><a href="#">home</a></li>
+                <li><a href="#">shop</a></li>
+                <li><a href="#">products</a></li>
+                <li><a href="#">page</a></li>
+                <li><a href="#">Docs</a></li>
+            </ul>
+
+            <div class="nav-icon">
+                <a href="#"><i class="bx bx-search"></i></a>
+                <a href="#"><i class="bx bx-user"></i></a>
+                <a href="#"><i class="bx bx-cart"></i></a>
+            </div>
+        </nav>
+        <!-- mobile -->
+        <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
+    </header>
+
+    <div class="content">
+        <th:block th:replace="${content}"></th:block>
+    </div>
+
+    <footer>
+
+    </footer>
+    </body>
+</th:block>
+</html>

@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+header .gnb {
+  width: 100%;
+  max-width: 1320px;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .gnb .nav-menu {
+  display: flex;
+}
+header .gnb .nav-menu a {
+  color: #2c2c2c;
+  font-size: 16px;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  font-weight: 400;
+  transition: all 0.42s ease;
+}
+header .gnb .nav-menu a:hover {
+  color: blue;
+}
+header .gnb .nav-icon {
+  display: flex;
+  align-items: center;
+}
+header .gnb .nav-icon i {
+  margin-right: 20px;
+  color: #2c2c2c;
+  font-size: 25px;
+  font-weight: 400;
+  transition: all 0.42s ease;
+}
+header .gnb .nav-icon i:hover {
+  transform: scale(1.1);
+  color: blue;
+}
+
+#menu-icon {
+  font-size: 35px;
+  color: #2c2c2c;
+  z-index: 10001;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=layout.css.map */

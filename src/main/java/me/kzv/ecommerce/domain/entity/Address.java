@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import me.kzv.ecommerce.domain.entity.member.Member;
+import me.kzv.ecommerce.utils.BooleanToYNConverter;
 
 @Getter
 @Entity
@@ -18,6 +19,7 @@ public class Address { // 배송지 주소
     private String zipcode; // 우편 번호
 
     private String addressName; // 주소 이름
+    @Convert(converter = BooleanToYNConverter.class)
     private Boolean isRecent; // 최근 배송지 여부
 
     @ManyToOne(fetch = FetchType.LAZY)

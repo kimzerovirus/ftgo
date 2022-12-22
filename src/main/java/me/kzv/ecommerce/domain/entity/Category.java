@@ -2,6 +2,7 @@ package me.kzv.ecommerce.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import me.kzv.ecommerce.utils.BooleanToYNConverter;
 
 @Entity
 @Getter
@@ -12,6 +13,9 @@ public class Category extends BaseEntity{
 
     private String categoryNm;
     private Long parentId;
+
+    @Convert(converter = BooleanToYNConverter.class)
+    private boolean isVisible;
 
     protected Category() {}
 

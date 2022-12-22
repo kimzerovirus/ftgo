@@ -26,6 +26,9 @@ public class CategoryService {
         category.update(categoryNm, parentId);
     }
 
+    // TODO 카테고리 삭제 -> 카테고리를 fk 로 갖는 상품이 있으면 삭제는 안되고 감추기만 가능하다.
+    // TODO 카테고리 명으로 조회
+
     @Transactional(readOnly = true)
     public List<Category> getCategories(){
         return categoryRepository.findAll();

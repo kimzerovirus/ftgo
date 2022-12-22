@@ -1,6 +1,7 @@
 package me.kzv.ecommerce.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 
 @Entity
@@ -23,13 +24,11 @@ public class CartItem extends BaseEntity {
     protected CartItem() {
     }
 
-    private CartItem(Cart cart, Item item, int count) {
+    @Builder
+    public CartItem(Long id, Cart cart, Item item, int count) {
+        this.id = id;
         this.cart = cart;
         this.item = item;
         this.count = count;
-    }
-
-    public static CartItem createCartItem(Cart cart, Item item, int count) {
-        return new CartItem(cart, item, count);
     }
 }

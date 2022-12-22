@@ -1,6 +1,7 @@
 package me.kzv.ecommerce.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import me.kzv.ecommerce.domain.entity.member.Member;
 
@@ -24,4 +25,15 @@ public class Delivery { // 배송지 주소
     private Member member;
 
     protected Delivery(){}
+
+    @Builder
+    public Delivery(Long id, String baseAddress, String detailAddress, String zipcode, String deliveryName, Boolean isRecent, Member member) {
+        this.id = id;
+        this.baseAddress = baseAddress;
+        this.detailAddress = detailAddress;
+        this.zipcode = zipcode;
+        this.deliveryName = deliveryName;
+        this.isRecent = isRecent;
+        this.member = member;
+    }
 }

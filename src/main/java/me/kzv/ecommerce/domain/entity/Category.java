@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class Category {
+public class Category extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +20,12 @@ public class Category {
         this.parentId = parentId;
     }
 
-    public static Category createCategory(String categoryNm, Long parentId) {
+    public static Category of(String categoryNm, Long parentId) {
         return new Category(categoryNm, parentId);
+    }
+
+    public void update(String categoryNm, Long parentId) {
+        this.categoryNm = categoryNm;
+        this.parentId = parentId;
     }
 }

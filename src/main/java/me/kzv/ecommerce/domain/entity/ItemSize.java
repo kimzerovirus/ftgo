@@ -16,4 +16,9 @@ public class ItemSize {
     private Item item;
 
     protected ItemSize() {}
+
+    //==양방향 연관관계를 위한 메서드==/
+    public void setItem(Item item) {
+        this.item = item;
+    }
 }

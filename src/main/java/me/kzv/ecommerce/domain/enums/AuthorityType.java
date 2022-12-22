@@ -1,5 +1,5 @@
 package me.kzv.ecommerce.domain.enums;
 
 public enum AuthorityType {
-    ADMIN, USER
+    ROLE_ADMIN, ROLE_USER
 }

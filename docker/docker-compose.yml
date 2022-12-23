@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+#  mysql:
+#    container_name: mysql_local
+#    image: mysql:8.0.30
+#    volumes:
+#      - ../db/conf.d:/etc/mysql/conf.d
+#      - ../db/initdb.d:/docker-entrypoint-initdb.d
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      - MYSQL_DATABASE=
+#      - MYSQL_USER=
+#      - MYSQL_PASSWORD=
+#      - MYSQL_ROOT_PASSWORD=
+#      - TZ=Asia/Seoul
+  cache:
+    container_name: e-commerce-redis
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ../db/redis-cache:/data

@@ -7,12 +7,12 @@
         <link rel="stylesheet"
               href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <script defer th:src="@{/js/admin-layout.js}"></script>
-        <title>admin</title>
+        <title>쇼핑몰관리 | KIMZEROVIRUS</title>
     </head>
 
     <body>
         <div id="sidebar">
-            <a href="#" class="logo"><i class='bx bxs-smile icon'></i> AdminSite</a>
+            <a href="#" class="logo"><i class='bx bxs-smile icon'></i> KIMZEROVIRUS</a>
             <ul class="side-menu">
                 <li><a href="#" class="active"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
                 <li class="divider" data-text="main">Main</li>
@@ -53,7 +53,9 @@
                 </a>
             </nav>
             <main>
-                <th:block th:replace="${content}"><!-- !! --></th:block>
+                <div class="main-content">
+                    <th:block th:replace="${content}"><!-- !! --></th:block>
+                </div>
             </main>
         </div>
     </body>

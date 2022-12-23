@@ -25,7 +25,7 @@ class CategoryServiceTest {
     @Test
     public void 카테고리_생성() throws Exception {
         //given
-        Category category = Category.of("바지", null);
+        Category category = Category.of("바지", null, 1);
 
         //when
         Long result = categoryService.saveNewCategory(category);
@@ -33,4 +33,15 @@ class CategoryServiceTest {
         //then
         assertThat(result).isEqualTo(categoryRepository.findById(result).get().getId());
     }
+
+    @Test
+    public void 카테고리리스트() throws Exception {
+        //given
+        Category category1 = Category.of("바지", 0l, 1);
+        Category category2 = Category.of("바지", null, 1);
+        //when
+
+        //then
+    }
+
 }

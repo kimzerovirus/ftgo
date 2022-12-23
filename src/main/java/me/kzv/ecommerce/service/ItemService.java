@@ -12,13 +12,13 @@ import me.kzv.ecommerce.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class ItemService {
     private final ItemRepository itemRepository;
     private final CategoryRepository categoryRepository;
 
-    @Transactional
     public Long saveNewItem(ItemSaveRequestDto dto){
         Category category = categoryRepository.getReferenceById(dto.categoryId());
         Item item = dto.toEntity(category);
@@ -35,7 +35,6 @@ public class ItemService {
         return itemRepository.save(item).getId();
     }
 
-    @Transactional
     public void updateItem(ItemUpdateRequestDto dto) {
         Item item = itemRepository.getReferenceById(dto.itemId());
         Category category = categoryRepository.getReferenceById(dto.categoryId());

@@ -27,7 +27,7 @@ class ItemServiceTest {
     @Test
     public void 상품_저장하기() throws Exception {
         //given
-        Long categoryId = categoryRepository.save(Category.of("카테고리", null)).getId();
+        Long categoryId = categoryRepository.save(Category.of("카테고리", null,1)).getId();
 
         ArrayList<ItemImg> itemImgs = new ArrayList<>();
         itemImgs.add(ItemImg.of("20221222image1","image1","https://www.naver.com",true));

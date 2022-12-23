@@ -1,0 +1,37 @@
+.container {
+  background-color: #e7e6f0;
+  padding: 2rem;
+  border-collapse: collapse;
+}
+.container:nth-child(n+2) {
+  margin-top: 1rem;
+}
+.container .draggable {
+  height: 82px;
+  line-height: 82px;
+  padding: 0 20px;
+  background-color: white;
+  border: 1px solid #c5cdd7;
+  border-bottom: none;
+  box-sizing: border-box;
+  cursor: move;
+}
+.container .draggable:last-child {
+  border-bottom: 1px solid #c5cdd7;
+}
+.container .draggable.dragging {
+  opacity: 0.5;
+  border: 2px dashed red;
+}
+.container .draggable .el {
+  display: inline-block;
+  vertical-align: middle;
+}
+.container .draggable .ico-drag {
+  display: inline-block;
+  vertical-align: inherit;
+  width: 15px;
+  height: 15px;
+}
+
+/*# sourceMappingURL=admin-category.css.map */

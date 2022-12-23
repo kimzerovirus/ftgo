@@ -9,6 +9,10 @@
   text-decoration: none;
 }
 
+body {
+  background-color: #f1f0f6;
+}
+
 /* sidebar */
 #sidebar {
   position: fixed;
@@ -38,7 +42,7 @@
   align-items: center;
   height: 64px;
   font-weight: 700;
-  color: blue;
+  color: #8f8fc9;
   position: sticky;
   top: 0;
   left: 0;
@@ -81,7 +85,7 @@
   transform: rotateZ(90deg);
 }
 #sidebar .side-menu > li > a.active, #sidebar .side-menu > li > a.active:hover {
-  background-color: blue;
+  background-color: #8f8fc9;
   color: #fff;
 }
 #sidebar.hide .side-menu {
@@ -115,7 +119,7 @@
   max-height: 1000px;
 }
 #sidebar .side-dropdown a:hover {
-  color: blue;
+  color: #8f8fc9;
 }
 
 /* content */
@@ -166,7 +170,7 @@
   transition: all 0.3s ease;
 }
 #navbar form .form-group input:focus {
-  outline: 2px solid blue;
+  outline: 2px solid #8f8fc9;
 }
 #navbar form .form-group .icon {
   position: absolute;
@@ -190,17 +194,13 @@
   height: 20px;
   border-radius: 50%;
   border: 2px solid #fff;
-  background: red;
+  background: #E66B26;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   font-size: 10px;
   font-weight: 700;
-}
-#navbar main {
-  width: 100%;
-  padding: 24px 20px 20px 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -224,6 +224,72 @@
   #navbar .nav-link {
     display: none;
   }
+
+  main {
+    padding: 16px 10px 10px 10px;
+  }
+}
+main {
+  width: 100%;
+  padding: 24px 20px 20px 20px;
+}
+main .main-content {
+  max-width: 1320px;
+}
+main .main-content .title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+main .main-content .info-data {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 20px;
+}
+main .main-content .info-data .card {
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.05);
+}
+main .main-content .info-data .card .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+main .main-content .info-data .card .head h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+main .main-content .info-data .card .head p {
+  font-size: 14px;
+}
+main .main-content .data {
+  display: flex;
+  grid-gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+main .main-content .data .content-data {
+  flex-grow: 1;
+  flex-basis: 400px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+}
+main .main-content .data .content-data .head {
+  margin-bottom: 24px !important;
+}
+main .main-content .data .content-data .head h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+main .main-content .data .content-data .head, main .main-content .data .content-data .body {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=admin-layout.css.map */

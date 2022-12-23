@@ -36,7 +36,7 @@ public abstract class Member extends BaseTimeEntity {
         this.email = email;
         this.isVerifiedEmail = isVerifiedEmail;
         this.point = 1000;
-        this.authorityType = AuthorityType.ROLE_USER;
+        this.authorityType = AuthorityType.USER;
         this.gradeType = GradeType.IRON;
     }
 }

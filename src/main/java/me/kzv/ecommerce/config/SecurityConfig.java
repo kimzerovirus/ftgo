@@ -22,9 +22,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                // https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html
+                .authorizeHttpRequests(
+                        (authorize) -> authorize
+                                .anyRequest().permitAll()
+                )
+                // TODO h2-console 사용하기 위해 임시로 풀어둠
+                .csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
+
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
+
                 .and()
                 .userDetailsService(customUserDetailsService)
                 .authenticationProvider(customAuthenticationProvider)

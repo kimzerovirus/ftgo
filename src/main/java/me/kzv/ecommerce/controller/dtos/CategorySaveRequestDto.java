@@ -4,9 +4,10 @@ import me.kzv.ecommerce.domain.entity.Category;
 
 public record CategorySaveRequestDto(
         String categoryNm,
-        Long parentId
+        Long parentId,
+        int orderId
 ) {
     public Category toEntity(){
-        return Category.of(categoryNm, parentId);
+        return Category.of(categoryNm, parentId, orderId);
     }
 }

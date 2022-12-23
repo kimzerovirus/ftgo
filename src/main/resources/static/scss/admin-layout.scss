@@ -1,5 +1,9 @@
-@import './utils/common.scss';
+@import '../utils/common.scss';
 // 참고 https://www.youtube.com/watch?v=m3aC6t_9RK8
+
+body{
+    background-color: $grey;
+}
 
 /* sidebar */
 #sidebar{
@@ -216,11 +220,6 @@
             font-weight: 700;
         }
     }
-
-    main{
-        width: 100%;
-        padding: 24px 20px 20px 20px;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -244,4 +243,83 @@
             display: none;
         }
     } 
+
+    main{
+        padding: 16px 10px 10px 10px;
+    }
+}
+
+main {
+    width: 100%;
+    padding: 24px 20px 20px 20px;
+    
+    .main-content{
+        max-width: $maxWidth;
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .info-data {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-gap: 20px;
+
+            .card {
+                padding: 20px;
+                border-radius: 10px;
+                background: $white;
+                box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+
+                .head {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+
+                    h2{
+                        font-size: 24px;
+                        font-weight: 600;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .data {
+            display: flex;
+            grid-gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+
+            .content-data {
+                flex-grow: 1;
+                flex-basis: 400px;
+                padding: 20px;
+                background: $white;
+                border-radius: 10px;
+                box-shadow: 4px 4px 16px rgba(0, 0, 0, .1); 
+
+                .head {
+                    margin-bottom: 24px !important;
+
+                    h3 {
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                }
+
+                .head, .body{
+                    width: 100%;
+                    max-width: 1080px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
 }

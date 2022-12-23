@@ -2,7 +2,7 @@ const layout = {
   init: function () {
     this.sidebarToggleEvent();
   },
-  sidebarToggleEvent() {
+  sidebarToggleEvent: function() {
     const sidebar = document.getElementById("sidebar");
     const allSidebarDivider = document.querySelectorAll("#sidebar .divider");
     const toggleSidebarBtn = document.getElementById("toggle-sidebar");

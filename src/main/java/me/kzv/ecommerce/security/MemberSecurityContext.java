@@ -37,7 +37,7 @@ public record MemberSecurityContext(
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority(member.getAuthorityType().toString()));
+        authorities.add(new SimpleGrantedAuthority(member.getAuthorityType().getValue()));
 
         return authorities;
     }

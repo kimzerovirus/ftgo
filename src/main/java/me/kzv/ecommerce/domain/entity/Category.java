@@ -12,24 +12,29 @@ public class Category extends BaseEntity{
     private Long id;
 
     private String categoryNm;
-    private Long parentId;
+    private Long parentId; // null 이라면 root 가 되는 아이디
+    private int orderId; // parentId 가 그룹을 나타낸다면 orderId 는 순서(위치)를 나타낸다.
 
     @Convert(converter = BooleanToYNConverter.class)
     private boolean isVisible;
 
     protected Category() {}
 
-    private Category(String categoryNm, Long parentId) {
+    private Category(String categoryNm, Long parentId, int orderId) {
         this.categoryNm = categoryNm;
         this.parentId = parentId;
+        this.orderId = orderId;
+        this.isVisible = true;
     }
 
-    public static Category of(String categoryNm, Long parentId) {
-        return new Category(categoryNm, parentId);
+    public static Category of(String categoryNm, Long parentId, int orderId) {
+        return new Category(categoryNm, parentId, orderId);
     }
 
-    public void update(String categoryNm, Long parentId) {
+    public void update(String categoryNm, Long parentId, int orderId, Boolean isVisible) {
         this.categoryNm = categoryNm;
         this.parentId = parentId;
+        this.orderId = orderId;
+        this.isVisible = isVisible;
     }
 }

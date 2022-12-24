@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+}
+
+.container {
+  background-color: #e7e6f0;
+  padding: 1rem;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.draggable {
+  height: 82px;
+  line-height: 82px;
+  padding: 0 20px;
+  background-color: white;
+  border: 1px solid #c5cdd7;
+  box-sizing: border-box;
+  cursor: move;
+
+  border-bottom: none;
+}
+.draggable:last-child{
+  border-bottom: 1px solid #c5cdd7;
+}
+
+.draggable.dragging, .dragging-parent {
+  opacity: 0.5;
+  border: 2px dashed red;
+}

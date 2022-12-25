@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import me.kzv.ecommerce.utils.BooleanToYNConverter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 public class Category extends BaseEntity{
@@ -12,11 +15,14 @@ public class Category extends BaseEntity{
     private Long id;
 
     private String categoryNm;
-    private Long parentId; // null 이라면 root 가 되는 아이디
+    private Long parentId; // 값이 음수라면 root 가 되는 아이디
     private int orderId; // parentId 가 그룹을 나타낸다면 orderId 는 순서(위치)를 나타낸다.
 
     @Convert(converter = BooleanToYNConverter.class)
     private boolean isVisible;
+
+    @OneToMany(mappedBy = "category") // cacade 옵션을 사용하지 않음 merge
+    private List<Item> items = new ArrayList<>(); // items 의 사이즈가 0일 경우에만 삭제가 가능하다
 
     protected Category() {}
 
@@ -36,5 +42,9 @@ public class Category extends BaseEntity{
         this.parentId = parentId;
         this.orderId = orderId;
         this.isVisible = isVisible;
+    }
+
+    public boolean isDel() {
+        return items.size() > 0;
     }
 }

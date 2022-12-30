@@ -1,5 +1,6 @@
 package me.kzv.ecommerce.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -12,10 +13,12 @@ import jakarta.persistence.*;
 @Getter
 public abstract class BaseEntity extends BaseTimeEntity{
 
+    @JsonIgnore
     @CreatedBy
     @Column(updatable = false)
     private String createdBy;
 
+    @JsonIgnore
     @LastModifiedBy
     private String modifiedBy;
 

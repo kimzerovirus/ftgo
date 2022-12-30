@@ -19,21 +19,21 @@ public class ItemService {
     private final ItemRepository itemRepository;
     private final CategoryRepository categoryRepository;
 
-    public Long saveNewItem(ItemSaveRequestDto dto){
-        Category category = categoryRepository.getReferenceById(dto.categoryId());
-        Item item = dto.toEntity(category);
-
-        for (ItemImg itemImg : dto.itemImgs()) {
-            // TODO fileService
-            item.addItemImg(itemImg);
-        }
-
-        for(ItemSize itemSize : dto.itemSizes()){
-            item.addItemSize(itemSize);
-        }
-
-        return itemRepository.save(item).getId();
-    }
+//    public Long saveNewItem(ItemSaveRequestDto dto){
+//        Category category = categoryRepository.getReferenceById(dto.categoryId());
+//        Item item = dto.toEntity(category);
+//
+//        for (ItemImg itemImg : dto.itemImgs()) {
+//            // TODO fileService
+//            item.addItemImg(itemImg);
+//        }
+//
+//        for(ItemSize itemSize : dto.itemSizes()){
+//            item.addItemSize(itemSize);
+//        }
+//
+//        return itemRepository.save(item).getId();
+//    }
 
     public void updateItem(ItemUpdateRequestDto dto) {
         Item item = itemRepository.getReferenceById(dto.itemId());

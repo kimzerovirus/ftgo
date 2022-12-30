@@ -6,8 +6,6 @@ public record CategorySaveRequestDto(
         String categoryNm,
         Long parentId,
         int orderId
-) {
-    public Category toEntity(){
-        return Category.of(categoryNm, parentId, orderId);
-    }
+){
+
 }

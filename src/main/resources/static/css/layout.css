@@ -9,10 +9,6 @@
   text-decoration: none;
 }
 
-body {
-  height: 2000px;
-}
-
 #header {
   position: fixed;
   width: 100%;
@@ -36,7 +32,7 @@ body {
 #header .gnb .nav-menu {
   display: flex;
 }
-#header .gnb .nav-menu a {
+#header .gnb .nav-menu > a, #header .gnb .nav-menu h1 {
   color: #2c2c2c;
   font-size: 16px;
   text-transform: capitalize;
@@ -44,8 +40,8 @@ body {
   font-weight: 400;
   transition: all 0.42s ease;
 }
-#header .gnb .nav-menu a:hover {
-  color: blue;
+#header .gnb .nav-menu > a:hover, #header .gnb .nav-menu h1:hover {
+  color: #8f8fc9;
 }
 #header .gnb .nav-icon {
   display: flex;
@@ -59,7 +55,7 @@ body {
   transition: all 0.42s ease;
 }
 #header .gnb .nav-icon i:hover {
-  color: blue;
+  color: #8f8fc9;
 }
 
 #menu-icon {

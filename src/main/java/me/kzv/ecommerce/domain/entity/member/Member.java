@@ -39,4 +39,5 @@ public abstract class Member extends BaseTimeEntity {
         this.authorityType = AuthorityType.USER;
         this.gradeType = GradeType.IRON;
     }
+
 }

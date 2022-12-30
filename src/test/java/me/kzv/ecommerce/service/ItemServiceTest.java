@@ -39,7 +39,7 @@ class ItemServiceTest {
         //when
 
         //then
-        itemService.saveNewItem(dto);
+//        itemService.saveNewItem(dto);
         /**
          * Hibernate:
          *     insert

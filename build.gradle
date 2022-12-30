@@ -43,7 +43,15 @@ dependencies {
     annotationProcessor "jakarta.annotation:jakarta.annotation-api"
     annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
+    // redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // modelmapper
+    implementation 'org.modelmapper:modelmapper:3.0.0'
+
+    // redis - java 8 LocalDateTime 직렬화/역직렬화 문제
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 }
 
 tasks.named('test') {

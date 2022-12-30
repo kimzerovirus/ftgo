@@ -16,7 +16,5 @@ public record ItemSaveRequestDto(
         List<ItemImg> itemImgs,
         List<ItemSize> itemSizes
 ) {
-    public Item toEntity(Category category) {
-        return Item.of(itemNm, price, itemSellStatus, category);
-    }
+
 }

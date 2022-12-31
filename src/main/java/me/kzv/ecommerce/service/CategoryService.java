@@ -41,11 +41,6 @@ public class CategoryService {
         categoryRepository.delete(category);
     }
 
-    // TODO 카테고리 명으로 조회
-    public void searchByCategoryNm(String categoryNm) {
-
-    }
-
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
@@ -58,6 +53,8 @@ public class CategoryService {
 //                .collect(Collectors.groupingBy(CategoryDto::categoryId));
 //    }
 
+
+    // 유저 화면에 보여줄 카테고리
     public List<Category> getCategoryListByVisible() {
         return categoryCacheRepository.getCategoryList()
                 .orElseGet(() -> categoryCacheRepository.save(categoryRepository.findByIsVisible(true)));

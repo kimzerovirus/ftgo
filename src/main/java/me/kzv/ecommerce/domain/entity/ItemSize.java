@@ -1,15 +1,18 @@
 package me.kzv.ecommerce.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import me.kzv.ecommerce.exception.NotEnoughStockException;
 
+@Getter
 @Entity
-public class ItemSize {
+public class ItemSize extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String sizeNm; // 사이즈 명 L, M, S 또는 44 55 66?
-    private int stockNumber; // 재고 수량
+    private int restStock; // 재고 수량
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
@@ -21,4 +24,17 @@ public class ItemSize {
     public void setItem(Item item) {
         this.item = item;
     }
+
+    public void removeStock(int count) {
+        int restStock = this.restStock - count;
+        if (restStock < 0) {
+            throw new NotEnoughStockException("재고가 부족합니다.");
+        }
+        this.restStock = restStock;
+    }
+
+    public void addStock(int count) {
+        restStock += count;
+    }
+
 }

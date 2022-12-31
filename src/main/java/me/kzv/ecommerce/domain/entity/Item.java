@@ -30,8 +30,7 @@ public class Item extends BaseEntity {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    protected Item() {
-    }
+    protected Item() {}
 
     private Item(String itemNm, int price, ItemSellStatus itemSellStatus, Category category) {
         this.itemNm = itemNm;
@@ -65,4 +64,7 @@ public class Item extends BaseEntity {
         this.itemImgs = itemImgs;
         this.itemSizes = itemSizes;
     }
+
+
+
 }

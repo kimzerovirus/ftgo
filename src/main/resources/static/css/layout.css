@@ -32,7 +32,7 @@
 #header .gnb .nav-menu {
   display: flex;
 }
-#header .gnb .nav-menu > a, #header .gnb .nav-menu h1 {
+#header .gnb .nav-menu li > a {
   color: #2c2c2c;
   font-size: 16px;
   text-transform: capitalize;
@@ -40,7 +40,7 @@
   font-weight: 400;
   transition: all 0.42s ease;
 }
-#header .gnb .nav-menu > a:hover, #header .gnb .nav-menu h1:hover {
+#header .gnb .nav-menu li > a:hover {
   color: #8f8fc9;
 }
 #header .gnb .nav-icon {

@@ -1,11 +1,13 @@
 package me.kzv.ecommerce.controller;
 
-import me.kzv.ecommerce.controller.dtos.CategorySaveRequestDto;
+import me.kzv.ecommerce.domain.entity.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -27,7 +29,7 @@ public class AdminController {
     }
 
     @PostMapping("/api/admin/manage/category/edit")
-    public void editAllCategoryList(@RequestBody CategorySaveRequestDto dto){
+    public void editAllCategoryList(@RequestBody List<Category> categoryList){
 
     }
 

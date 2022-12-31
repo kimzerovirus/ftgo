@@ -12,6 +12,8 @@ import me.kzv.ecommerce.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 @Service
 @RequiredArgsConstructor
@@ -41,5 +43,11 @@ public class ItemService {
 
         // TODO fileService update
         item.update(dto.itemNm(), dto.price(), dto.itemSellStatus(), category, dto.itemImgs(), dto.itemSizes());
+    }
+
+    public List<Item> getNewItemList() {
+        // 메인 화면에 보여줄 신상품 리스트
+
+        return null;
     }
 }

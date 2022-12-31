@@ -2,7 +2,6 @@ package me.kzv.ecommerce.repository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.kzv.ecommerce.controller.dtos.CategoryListDto;
 import me.kzv.ecommerce.domain.entity.Category;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;

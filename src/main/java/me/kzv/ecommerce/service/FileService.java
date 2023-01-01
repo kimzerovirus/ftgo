@@ -22,7 +22,8 @@ public class FileService {
         if (multipartFile.isEmpty()){
             throw new FileNotFoundException("최소 1개 이상의 상품 사진이 필요합니다.");
         }
-        String saveImgName = UUID.randomUUID().toString();
+        String originalFilename = multipartFile.getOriginalFilename();
+        String saveImgName = UUID.randomUUID() + extractExt(originalFilename);
         multipartFile.transferTo(new File(uploadPath + saveImgName));
         return saveImgName;
     }
@@ -35,5 +36,10 @@ public class FileService {
         } else {
             log.info(filePath + "파일이 존재하지 않습니다.");
         }
+    }
+
+    private String extractExt(String originalFilename) {
+        int pos = originalFilename.lastIndexOf(".");
+        return originalFilename.substring(pos + 1);
     }
 }

@@ -12,7 +12,7 @@ public record ItemUpdateRequestDto(
         String itemNm,
         int price,
         ItemSellStatus itemSellStatus,
-        List<ItemImg> itemImgs,
+        List<ItemUpdateRequestDto> itemImgs,
         List<ItemSize> itemSizes
 ) {
 }

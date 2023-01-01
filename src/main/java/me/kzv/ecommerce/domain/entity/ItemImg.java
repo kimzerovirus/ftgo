@@ -21,22 +21,27 @@ public class ItemImg extends BaseEntity {
     @JoinColumn(name = "item_id")
     private Item item;
 
-    protected ItemImg() {}
+    protected ItemImg() {
+    }
 
-    private ItemImg(String imgNm, String originImgNm, String imgUrl, Boolean isRepImg) {
-        this.imgNm = imgNm;
+    private ItemImg(String originImgNm) {
         this.originImgNm = originImgNm;
-        this.imgUrl = imgUrl;
-        this.isRepImg = isRepImg;
     }
 
     //==생성 메서드==//
-    public static ItemImg of(String imgNm, String originImgNm, String imgUrl, Boolean isRepImg){
-        return new ItemImg(imgNm, originImgNm, imgUrl, isRepImg);
+    public static ItemImg of(String originImgNm) {
+        return new ItemImg(originImgNm);
     }
 
     //==양방향 연관관계를 위한 메서드==/
     public void setItem(Item item) {
         this.item = item;
     }
+
+    public void update(String imgNm, String imgUrl, Boolean isRepImg) {
+        this.imgNm = imgNm;
+        this.imgUrl = imgUrl;
+        this.isRepImg = isRepImg;
+    }
+
 }

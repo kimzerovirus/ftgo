@@ -26,3 +26,6 @@ spring:
       port: 6379
 
 
+uploadPath: /users/zerovirus/desktop/code/e-commerce/item/
+
+

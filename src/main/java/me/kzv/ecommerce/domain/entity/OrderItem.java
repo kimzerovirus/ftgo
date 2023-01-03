@@ -2,6 +2,7 @@ package me.kzv.ecommerce.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import me.kzv.ecommerce.domain.enums.OrderStatus;
 
 @Entity
 @Getter
@@ -23,6 +24,8 @@ public class OrderItem  extends BaseEntity{
     private String size; // 사이즈 명
 
     private int orderPrice; // 결제 금액 - 회원의 등급에 따라 가격이 차등 결정됨
+
+    private Long reviewId; // 리뷰 아이디만 저장
 
     protected OrderItem() {}
 
@@ -54,6 +57,10 @@ public class OrderItem  extends BaseEntity{
         for (ItemSize itemSize : getItem().getItemSizes()) {
             if(itemSize.getSizeNm().equals(size)) itemSize.addStock(count);
         }
+    }
+
+    public boolean isEnableReview(){ // 리뷰 작성이 가능한지
+        return order.getOrderStatus() == OrderStatus.FINISHED && reviewId == null;
     }
 
 

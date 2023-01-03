@@ -53,6 +53,7 @@ public class ItemService {
         item.update(dto.itemNm(), dto.price(), dto.itemSellStatus(), category, itemImgs, itemSizes);
     }
 
+    @Transactional(readOnly = true)
     public List<Item> getNewItemList() {
         // 메인 화면에 보여줄 신상품 리스트
         // select i.*, count(*) from item i, order_item o where i.id = o.item_id group by i.id order by count(*) desc

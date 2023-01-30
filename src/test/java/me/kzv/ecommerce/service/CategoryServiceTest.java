@@ -2,9 +2,8 @@ package me.kzv.ecommerce.service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import me.kzv.ecommerce.controller.dtos.CategoryListDto;
-import me.kzv.ecommerce.domain.entity.Category;
-import me.kzv.ecommerce.repository.CategoryRepository;
+import me.kzv.ecommerce.domain.category.Category;
+import me.kzv.ecommerce.domain.category.CategoryRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

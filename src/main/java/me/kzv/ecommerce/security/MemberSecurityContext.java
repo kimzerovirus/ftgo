@@ -1,7 +1,7 @@
 package me.kzv.ecommerce.security;
 
-import me.kzv.ecommerce.domain.entity.member.LocalMember;
-import me.kzv.ecommerce.domain.entity.member.Member;
+import me.kzv.ecommerce.domain.member.LocalMember;
+import me.kzv.ecommerce.domain.member.Member;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

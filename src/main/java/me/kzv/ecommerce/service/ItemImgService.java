@@ -1,7 +1,7 @@
 package me.kzv.ecommerce.service;
 
 import lombok.RequiredArgsConstructor;
-import me.kzv.ecommerce.domain.entity.ItemImg;
+import me.kzv.ecommerce.domain.itemimg.ItemImg;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

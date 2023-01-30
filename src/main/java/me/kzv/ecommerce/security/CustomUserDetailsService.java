@@ -1,9 +1,9 @@
 package me.kzv.ecommerce.security;
 
 import lombok.RequiredArgsConstructor;
-import me.kzv.ecommerce.domain.entity.member.Member;
-import me.kzv.ecommerce.domain.entity.member.SocialMember;
-import me.kzv.ecommerce.repository.MemberRepository;
+import me.kzv.ecommerce.domain.member.Member;
+import me.kzv.ecommerce.domain.member.SocialMember;
+import me.kzv.ecommerce.domain.member.MemberRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

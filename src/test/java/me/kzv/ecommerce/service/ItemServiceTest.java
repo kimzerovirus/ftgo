@@ -1,12 +1,11 @@
 package me.kzv.ecommerce.service;
 
 import me.kzv.ecommerce.controller.dtos.ItemSaveRequestDto;
-import me.kzv.ecommerce.domain.entity.Category;
-import me.kzv.ecommerce.domain.entity.Item;
-import me.kzv.ecommerce.domain.entity.ItemImg;
-import me.kzv.ecommerce.domain.entity.ItemSize;
-import me.kzv.ecommerce.domain.enums.ItemSellStatus;
-import me.kzv.ecommerce.repository.CategoryRepository;
+import me.kzv.ecommerce.domain.category.Category;
+import me.kzv.ecommerce.domain.itemimg.ItemImg;
+import me.kzv.ecommerce.domain.itemsize.ItemSize;
+import me.kzv.ecommerce.domain.item.ItemSellStatus;
+import me.kzv.ecommerce.domain.category.CategoryRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,8 +18,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional

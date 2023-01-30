@@ -1,9 +1,9 @@
 package me.kzv.ecommerce.service;
 
 import lombok.RequiredArgsConstructor;
-import me.kzv.ecommerce.domain.entity.member.LocalMember;
-import me.kzv.ecommerce.domain.entity.member.Member;
-import me.kzv.ecommerce.repository.MemberRepository;
+import me.kzv.ecommerce.domain.member.LocalMember;
+import me.kzv.ecommerce.domain.member.Member;
+import me.kzv.ecommerce.domain.member.MemberRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

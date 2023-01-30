@@ -2,17 +2,12 @@ package me.kzv.ecommerce.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import me.kzv.ecommerce.controller.dtos.CategoryDto;
-import me.kzv.ecommerce.controller.dtos.CategoryListDto;
-import me.kzv.ecommerce.domain.entity.Category;
-import me.kzv.ecommerce.repository.CategoryCacheRepository;
-import me.kzv.ecommerce.repository.CategoryRepository;
-import org.springframework.cache.annotation.Cacheable;
+import me.kzv.ecommerce.domain.category.Category;
+import me.kzv.ecommerce.domain.category.CategoryCacheRepository;
+import me.kzv.ecommerce.domain.category.CategoryRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @Transactional(readOnly = true)

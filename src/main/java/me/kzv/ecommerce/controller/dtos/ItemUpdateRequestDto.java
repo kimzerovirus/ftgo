@@ -1,8 +1,7 @@
 package me.kzv.ecommerce.controller.dtos;
 
-import me.kzv.ecommerce.domain.entity.ItemImg;
-import me.kzv.ecommerce.domain.entity.ItemSize;
-import me.kzv.ecommerce.domain.enums.ItemSellStatus;
+import me.kzv.ecommerce.domain.itemsize.ItemSize;
+import me.kzv.ecommerce.domain.item.ItemSellStatus;
 
 import java.util.List;
 

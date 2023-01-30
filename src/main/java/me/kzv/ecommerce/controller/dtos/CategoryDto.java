@@ -1,7 +1,6 @@
 package me.kzv.ecommerce.controller.dtos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import me.kzv.ecommerce.domain.entity.Category;
+import me.kzv.ecommerce.domain.category.Category;
 
 public record CategoryDto (
         Long categoryId,

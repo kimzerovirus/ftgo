@@ -1,7 +1,7 @@
 package me.kzv.ecommerce.controller;
 
 import lombok.RequiredArgsConstructor;
-import me.kzv.ecommerce.domain.entity.Category;
+import me.kzv.ecommerce.domain.category.Category;
 import me.kzv.ecommerce.service.CategoryService;
 import me.kzv.ecommerce.service.ItemService;
 import org.springframework.stereotype.Controller;

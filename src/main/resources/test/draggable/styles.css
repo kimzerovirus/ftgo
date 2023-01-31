@@ -1,8 +1,18 @@
-* {
+
+body {
   margin: 0;
+  padding: 10px;
 }
 
-.container {
+.draggable > input {
+  border: none !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.draggable-container {
+  width: 100%;
   background-color: #e7e6f0;
   padding: 1rem;
   border-collapse: collapse;
@@ -10,9 +20,8 @@
 }
 
 .draggable {
-  height: 82px;
-  line-height: 82px;
-  padding: 0 20px;
+  width: 100%;
+  padding: 20px;
   background-color: white;
   border: 1px solid #c5cdd7;
   box-sizing: border-box;
@@ -27,4 +36,9 @@
 .draggable.dragging, .dragging-parent {
   opacity: 0.5;
   border: 2px dashed red;
+}
+
+.draggable > .btn {
+  border: 1px solid #7c8187 !important;
+  border-radius: 0 !important;
 }

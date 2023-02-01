@@ -10,13 +10,16 @@ import me.kzv.ecommerce.utils.BooleanToYNConverter;
 @Entity
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn
+@DiscriminatorColumn(name = "login_type")
 public abstract class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
+    @Column(unique = true)
     private String email;
 
     @Convert(converter = BooleanToYNConverter.class)
@@ -32,10 +35,11 @@ public abstract class Member extends BaseTimeEntity {
 
     protected Member() {}
 
-    protected Member(String email, Boolean isVerifiedEmail) {
+    protected Member(String name, String email, Boolean isVerifiedEmail) {
+        this.name = name;
         this.email = email;
         this.isVerifiedEmail = isVerifiedEmail;
-        this.point = 1000;
+        this.point = 1000; // 가입시 1000 포인트 기본 제공
         this.authorityType = AuthorityType.USER;
         this.gradeType = GradeType.IRON;
     }

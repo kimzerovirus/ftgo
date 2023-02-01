@@ -19,8 +19,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model){
-        List<Category> categoryList = categoryService.getCategoryListByVisible();
-        model.addAttribute("categoryList", categoryList);
+//        List<Category> categoryList = categoryService.getCategoryListByVisible();
+//        model.addAttribute("categoryList", categoryList);
 
         return "index";
     }

@@ -7,6 +7,8 @@ import me.kzv.ecommerce.domain.member.enums.AuthorityType;
 import me.kzv.ecommerce.domain.member.enums.GradeType;
 import me.kzv.ecommerce.utils.BooleanToYNConverter;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -17,7 +19,7 @@ public abstract class Member extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String username;
 
     @Column(unique = true)
     private String email;
@@ -25,7 +27,9 @@ public abstract class Member extends BaseTimeEntity {
     @Convert(converter = BooleanToYNConverter.class)
     private Boolean isVerifiedEmail; // TODO 로컬 가입시 -> 이메일 인증 필요
 
-    private int point; // 적립금
+    private LocalDate birthday;
+
+    private int mileage; // 적립금
 
     @Enumerated(EnumType.STRING)
     private AuthorityType authorityType; // 회원 권한
@@ -35,13 +39,13 @@ public abstract class Member extends BaseTimeEntity {
 
     protected Member() {}
 
-    protected Member(String name, String email, Boolean isVerifiedEmail) {
-        this.name = name;
+    protected Member(String username, String email, LocalDate birthday, Boolean isVerifiedEmail) {
+        this.username = username;
         this.email = email;
+        this.birthday = birthday;
         this.isVerifiedEmail = isVerifiedEmail;
-        this.point = 1000; // 가입시 1000 포인트 기본 제공
+        this.mileage = 1000; // 가입시 1000 포인트 기본 제공
         this.authorityType = AuthorityType.USER;
         this.gradeType = GradeType.IRON;
     }
-
 }

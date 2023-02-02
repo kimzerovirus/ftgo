@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import me.kzv.ecommerce.controller.dtos.LocalMemberRequestDto;
-import me.kzv.ecommerce.domain.member.LocalMember;
+import me.kzv.ecommerce.controller.validators.LocalMemberRequestValidator;
 import me.kzv.ecommerce.service.MemberService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,7 +13,10 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -21,6 +24,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
 
     private final MemberService memberService;
+    private final LocalMemberRequestValidator localMemberRequestValidator;
+
+    @InitBinder("localMemberRequestDto")
+    public void initBinder(WebDataBinder data) {
+        data.addValidators(localMemberRequestValidator);
+    }
 
     @GetMapping("/login")
     public String login() {
@@ -33,22 +42,18 @@ public class UserController {
     }
 
     @GetMapping("/create-account")
-    public String register() { // 스토어 회원 정보 기입 창
+    public String register(Model model) { // 스토어 회원 정보 기입 창
+        model.addAttribute("localMemberRequestDto", new LocalMemberRequestDto(null, null, null, null));
         return "user/joinForm";
     }
 
     @PostMapping("/create-account")
-    public String createAccount(@Valid LocalMemberRequestDto dto, BindingResult bindingResult, Model model) { // 계정 생성
-        if(bindingResult.hasErrors()) { // 유효성 검사
+    public String createAccount(@ModelAttribute("localMemberRequestDto") @Valid LocalMemberRequestDto dto, BindingResult bindingResult, Model model) { // 계정 생성
+        if (bindingResult.hasErrors()) { // 유효성 검사
             return "user/joinForm";
         }
 
-        try {
-            memberService.createLocalMember(dto.name(), dto.email(), dto.password());
-        } catch (IllegalStateException e) { // 중복 회원 예외 처리
-            model.addAttribute("errMsg", e.getMessage());
-            return "user/joinForm";
-        }
+        memberService.createLocalMember(dto.username(), dto.email(), dto.password(), dto.birthday());
 
         model.addAttribute("msg", "회원가입을 환영합니다.");
         model.addAttribute("url", "/");

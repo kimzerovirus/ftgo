@@ -30,7 +30,7 @@ class MemberServiceTest {
         var pwd = "12341234";
         LocalMember savedMember = (LocalMember) memberService.createLocalMember(name, email, pwd);
 
-        assertEquals(name, savedMember.getName());
+        assertEquals(name, savedMember.getUsername());
         assertEquals(email, savedMember.getEmail());
         assertTrue(passwordEncoder.matches(pwd, savedMember.getPassword()));
     }

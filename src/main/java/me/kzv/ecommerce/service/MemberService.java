@@ -19,9 +19,9 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public Member createLocalMember(String name, String email, String password) {
+    public Member createLocalMember(String username, String email, String password) {
         checkDuplicateEmail(email);
-        Member member = LocalMember.of(name, email, password, passwordEncoder);
+        Member member = LocalMember.of(username, email, password, passwordEncoder);
         return memberRepository.save(member);
     }
 

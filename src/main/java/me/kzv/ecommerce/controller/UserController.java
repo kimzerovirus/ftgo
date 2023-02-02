@@ -44,7 +44,7 @@ public class UserController {
         }
 
         try {
-            memberService.createLocalMember(dto.name(), dto.email(), dto.password());
+            memberService.createLocalMember(dto.username(), dto.email(), dto.password());
         } catch (IllegalStateException e) { // 중복 회원 예외 처리
             model.addAttribute("errMsg", e.getMessage());
             return "user/joinForm";

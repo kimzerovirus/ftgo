@@ -16,8 +16,8 @@ public class SocialMember extends Member {
 
     protected SocialMember() {}
 
-    private SocialMember(String name, String email, SocialType socialType) {
-        super(name, email, true);
+    private SocialMember(String username, String email, SocialType socialType) {
+        super(username, email, true);
         this.socialType = socialType;
     }
 

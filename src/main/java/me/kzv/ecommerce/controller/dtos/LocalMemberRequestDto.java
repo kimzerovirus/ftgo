@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern;
 
 public record LocalMemberRequestDto(
         @NotBlank(message = "필수 정보입니다.")
-        String name,
+        String username,
 
         @NotBlank(message = "필수 정보입니다.")
         @Email(message = "이메일만 입력 가능합니다.")

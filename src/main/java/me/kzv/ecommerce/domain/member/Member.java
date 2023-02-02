@@ -17,7 +17,7 @@ public abstract class Member extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String username;
 
     @Column(unique = true)
     private String email;
@@ -35,8 +35,8 @@ public abstract class Member extends BaseTimeEntity {
 
     protected Member() {}
 
-    protected Member(String name, String email, Boolean isVerifiedEmail) {
-        this.name = name;
+    protected Member(String username, String email, Boolean isVerifiedEmail) {
+        this.username = username;
         this.email = email;
         this.isVerifiedEmail = isVerifiedEmail;
         this.point = 1000; // 가입시 1000 포인트 기본 제공

@@ -7,6 +7,8 @@ import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import me.kzv.ecommerce.domain.member.enums.SocialType;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @DiscriminatorValue("SOCIAL")
@@ -16,8 +18,8 @@ public class SocialMember extends Member {
 
     protected SocialMember() {}
 
-    private SocialMember(String username, String email, SocialType socialType) {
-        super(username, email, true);
+    private SocialMember(String username, String email, LocalDate birthday, SocialType socialType) {
+        super(username, email, birthday, true);
         this.socialType = socialType;
     }
 

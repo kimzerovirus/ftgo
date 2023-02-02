@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -28,7 +30,8 @@ class MemberServiceTest {
         var name = "새로운 사람";
         var email = "email@email.com";
         var pwd = "12341234";
-        LocalMember savedMember = (LocalMember) memberService.createLocalMember(name, email, pwd);
+        var birthday = "2002-02-02";
+        LocalMember savedMember = (LocalMember) memberService.createLocalMember(name, email, pwd, birthday);
 
         assertEquals(name, savedMember.getUsername());
         assertEquals(email, savedMember.getEmail());
@@ -42,11 +45,13 @@ class MemberServiceTest {
         var name = "새로운 사람";
         var email = "email@email.com";
         var pwd = "12341234";
-        memberService.createLocalMember(name, email, pwd);
+        var birthday = "2001-01-01";
+
+        memberService.createLocalMember(name, email, pwd, birthday);
 
         //when
         var e = assertThrows(DuplicatedMemberException.class, () -> {
-            memberService.createLocalMember(name, email, pwd);
+            memberService.createLocalMember(name, email, pwd, birthday);
         });
 
         //then

@@ -1,0 +1,96 @@
+.login {
+    width: 100%;
+}
+
+.login .login-wrap {
+    margin: 0 auto;
+    max-width: 480px;
+    width: 90%;
+}
+
+.login .login-wrap form {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.input-box {
+    position: relative;
+    margin: 10px 0
+}
+
+.input-box input {
+    background: transparent;
+    border: none;
+    border-bottom: solid 1px #999;
+    padding: 20px 0px 5px 0px;
+    font-size: 14pt;
+    width: 100%;
+}
+
+.input-box input::placeholder {
+    color: transparent;
+}
+
+.input-box input:focus,
+.input-box input:not(:placeholder-shown) {
+    border-bottom: solid 1px #6868ac;
+    outline: none;
+}
+
+.input-box input:placeholder-shown + label.ani {
+    color: #999;
+    font-size: 14pt;
+    top: 15px;
+}
+
+.input-box input:focus + .input-box label.ani,
+label.ani {
+    color: #6868ac;
+    font-size: 10pt;
+    pointer-events: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+}
+
+.btn-login-group a {
+    cursor: pointer;
+}
+
+.btn-login-group .btn-login {
+    display: block;
+    text-align: center;
+    background-color: #6868ac;
+    border: none;
+    color: white;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14pt;
+    margin-top: 12px;
+}
+
+.btn-login-group .btn-login:nth-child(1) {
+    margin-bottom: 50px;
+}
+
+.btn-google {
+    background-color: #fff !important;
+    border: 1px solid #777 !important;
+    color: #777 !important;
+    box-sizing: border-box;
+}
+
+.btn-naver {
+    background-color: #03c759 !important;
+}
+
+.btn-kakao {
+    background-color: #fee500 !important;
+    color: #333;
+}

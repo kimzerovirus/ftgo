@@ -32,14 +32,14 @@ public class UserController {
         return "user/join";
     }
 
-    @GetMapping("/create_account")
+    @GetMapping("/create-account")
     public String register() { // 스토어 회원 정보 기입 창
         return "user/joinForm";
     }
 
-    @PostMapping("/create_account")
+    @PostMapping("/create-account")
     public String createAccount(@Valid LocalMemberRequestDto dto, BindingResult bindingResult, Model model) { // 계정 생성
-        if(bindingResult.hasErrors()) {
+        if(bindingResult.hasErrors()) { // 유효성 검사
             return "user/joinForm";
         }
 

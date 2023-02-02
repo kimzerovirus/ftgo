@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JOIN</title>
+    <link th:href="@{/css/card-layout.css}" rel="stylesheet">
+    <style>
+        .login-wrap {
+            margin: 0 auto;
+            max-width: 480px;
+            width: 90%;
+        }
+        .btn-login {
+            display: block;
+            text-align: center;
+            background-color: #6868ac;
+            border: none;
+            color: white;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 14pt;
+            margin-top: 12px;
+        }
+        .btn-google {
+            background-color: #fff !important;
+            border: 1px solid #777 !important;
+            color: #777 !important;
+            box-sizing: border-box;
+        }
+        .btn-naver {
+            background-color: #03c759 !important;
+        }
+        .btn-kakao {
+            background-color: #fee500 !important;
+            color: #333;
+        }
+    </style>
 </head>
-<body>
+<th:block th:replace="~{/layouts/layout :: setContent(~{this::content} )}">
 
-</body>
+    <th:block th:fragment="content">
+        <div class="container-fluid px-4 px-lg-5">
+            <section class="jumbotron text-center bg-white" style="margin-bottom:0">
+                <h1 class="py-5 my-5">SIGN UP</h1>
+                <p class="py-5 border-top border-bottom border-dark">온라인 스토어 회원만의 <strong>특별한 혜택</strong></p>
+            </section>
+
+            <section class="promotion-section w-100">
+                <ul class="promo-list">
+                    <li>
+                        <div class="d-flex justify-content-center">
+                            <img th:src="@{/img/benefit/benefit1.png}" alt="">
+                        </div>
+                        <h3>5,000원 온라인 쿠폰 지급</h3>
+                        <p>온라인 스토어에서만 사용가능</p>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-center">
+                            <img th:src="@{/img/benefit/benefit2.png}" alt="">
+                        </div>
+                        <h3>기념일 축하 1만원 할인 쿠폰 지급</h3>
+                        <p>연 1회 설정한 기념일에 지급되며<br/> 지급 후 한달 동안 사용 가능</p>
+                    </li>
+                </ul>
+                <ul class="promo-list">
+                    <li>
+                        <div class="d-flex justify-content-center">
+                            <img th:src="@{/img/benefit/benefit3.png}" alt="">
+                        </div>
+                        <h3>6%마일리지 적립</h3>
+                        <p>결제 금액의 6% 마일리지 적립</p>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-center">
+                            <img th:src="@{/img/benefit/benefit4.png}" alt="">
+                        </div>
+                        <h3>온오프 마일리지 통합</h3>
+                        <p>오프라인 매장에서 적립한 마일리지를<br/> 온라인에서 사용가능</p>
+                    </li>
+                </ul>
+            </section>
+            <hr class="w-100" style="margin: 50px 0;">
+            <div class="login-wrap text-center d-flex flex-column justify-content-center">
+                <p class="text-muted">만 14세 미만은 회원가입 및 서비스 이용이 불가능합니다.</p>
+                <a href="" class="btn-login btn-google">구글 계정으로 신규가입</a>
+                <a href="" class="btn-login btn-naver">네이버 계정으로 신규가입</a>
+                <a href="" class="btn-login btn-kakao">카카오 계정으로 신규가입</a>
+                <a href="/create-account" class="btn-login">만14세 이상 회원가입</a>
+            </div>
+        </div>
+    </th:block>
+
+</th:block>
 </html>

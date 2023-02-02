@@ -1,0 +1,60 @@
+.promotion-section {
+    margin-top: 68px;
+    overflow: hidden;
+}
+.promotion-section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.promotion-section .promo-list{
+    padding: 0;
+    width: 100%;
+    display: flex;
+    float: left;
+}
+
+.promotion-section .promo-list li {
+    margin-top: 52px;
+    text-align: center;
+    display: inline-block;
+}
+
+.promotion-section .promo-list li img {
+    width: 80%;
+}
+
+.promotion-section .promo-list li h3 {
+    margin: 29px 0 20px 0;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.promotion-section .promo-list li p {
+    font-size: 14px;
+    color: #616161;
+    line-height: 1.5;
+}
+
+.promotion-section .promo-list li {
+    width: 50%;
+}
+
+/*@media all and (min-width:768px) {*/
+/*    .promotion-section .promo-list li {*/
+/*        width: 50%;*/
+/*    }*/
+/*}*/
+
+/* PC용 CSS */
+@media all and (min-width: 768px) {
+    .promotion-section .promo-list {
+        width: 50%;
+    }
+
+    .promotion-section .promo-list li img {
+        width: 70%;
+    }
+
+}
+

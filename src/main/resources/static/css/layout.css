@@ -8,7 +8,13 @@
   scroll-behavior: smooth;
   font-family: "Poppins", "Noto Sans KR", sans-serif;
   list-style: none;
-  text-decoration: none;
+}
+a{
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+a:hover{
+  color: inherit !important;
 }
 
 #header {
@@ -24,7 +30,8 @@
 }
 #header .gnb {
   width: 100%;
-  max-width: 1320px;
+  height: 100%;
+  /*max-width: 1320px;*/
   padding: 20px;
   margin: 0 auto;
   display: flex;
@@ -33,6 +40,7 @@
 }
 #header .gnb .nav-menu {
   display: flex;
+  padding: 0;
 }
 #header .gnb .nav-menu li > a {
   color: #2c2c2c;

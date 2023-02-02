@@ -14,12 +14,12 @@ public class LocalMember extends Member {
     protected LocalMember() {
     }
 
-    private LocalMember(String email, String password) {
-        super(email, false);
+    private LocalMember(String name, String email, String password) {
+        super(name, email, false);
         this.password = password;
     }
 
-    public static LocalMember of(String email, String password, PasswordEncoder passwordEncoder) {
-        return new LocalMember(email, passwordEncoder.encode(password));
+    public static Member of(String name, String email, String password, PasswordEncoder passwordEncoder) {
+        return new LocalMember(name, email, passwordEncoder.encode(password));
     }
 }

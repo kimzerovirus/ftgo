@@ -6,9 +6,9 @@
 
 
 const draggables = document.querySelectorAll('.draggable')
-const containers = document.querySelectorAll('.container')
+const containers = document.querySelectorAll('.draggable-container')
 const mainCategories = document.querySelectorAll('.main-category')
-const main = document.querySelector('.main')
+const main = document.querySelector('.draggable-category')
 
 const dummyMain = [
   {categoryId: 0, categoryNm: "여자", parentId: -1, orderId: 1, isVisible: true, isDel: false},
@@ -29,11 +29,22 @@ function createDom(){
     setCategoryAttributes(parentDiv, mainCategory)
 
     const categoryNmDiv = document.createElement('div');
+    categoryNmDiv.classList.add('input-group');
+    categoryNmDiv.classList.add('draggable');
+    
     const categoryNmInput = document.createElement('input');
     const addBtn = document.createElement('button')
     const editBtn = document.createElement('button')
     const hideBtn = document.createElement('button')
     const deleteBtn = document.createElement('button')
+
+    addBtn.classList.add('btn')
+    editBtn.classList.add('btn')
+    hideBtn.classList.add('btn')
+    deleteBtn.classList.add('btn')
+
+    
+    categoryNmInput.classList.add('form-control');
     categoryNmInput.setAttribute('value', mainCategory.categoryNm);
     categoryNmInput.setAttribute('readonly', 'true');
     categoryNmInput.addEventListener('input', e => {
@@ -69,6 +80,7 @@ function createDom(){
       if(parentDiv.isDel) parentDiv.remove();
     })
 
+
     parentDiv.appendChild(categoryNmDiv);
     categoryNmDiv.appendChild(categoryNmInput);
     categoryNmDiv.appendChild(addBtn);
@@ -77,7 +89,7 @@ function createDom(){
     categoryNmDiv.appendChild(deleteBtn);
 
     const childDiv = document.createElement('div');
-    childDiv.classList.add('container');
+    childDiv.classList.add('draggable-container');
 
     const subDivWrapper = parentDiv.appendChild(childDiv);
     dummySub.forEach(subCategory => {
@@ -91,6 +103,12 @@ function createDom(){
         const hideBtn = document.createElement('button')
         const deleteBtn = document.createElement('button')
 
+        addBtn.classList.add('btn')
+        editBtn.classList.add('btn')
+        hideBtn.classList.add('btn')
+        deleteBtn.classList.add('btn')
+
+        categoryNmInput.classList.add('form-control');
         categoryNmInput.setAttribute('value', subCategory.categoryNm);
         categoryNmInput.setAttribute('readonly', 'true');
         categoryNmInput.addEventListener('input', e => {
@@ -240,6 +258,7 @@ function getDragAfterElement(el, y, cls) {
 }
 
 function addDragEvent(el, cls){
+  el.classList.add('input-group')
 
   el.addEventListener('dragstart', (e) => {
     e.stopPropagation();

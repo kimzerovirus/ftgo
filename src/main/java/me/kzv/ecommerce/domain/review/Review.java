@@ -34,10 +34,10 @@ public class Review  extends BaseEntity {
 
     private int score; // 별점
 
-    @OneToMany(mappedBy = "reviewImg", orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "review", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<ReviewImg> reviewImgs = new ArrayList<>();
 
-    @OneToMany(mappedBy = "reviewReply", orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "review", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<ReviewReply> reviewReplys = new ArrayList<>();
 
     protected Review() {}

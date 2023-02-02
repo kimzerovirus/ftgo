@@ -13,4 +13,13 @@ import me.kzv.ecommerce.domain.member.enums.SocialType;
 public class SocialMember extends Member {
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
+
+    protected SocialMember() {}
+
+    private SocialMember(String name, String email, SocialType socialType) {
+        super(name, email, true);
+        this.socialType = socialType;
+    }
+
+
 }

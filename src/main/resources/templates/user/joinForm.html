@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css"/>
+    <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
+</head>
+
+<script th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        new tui.DatePicker('#tui-datepicker',{
+            language: 'ko',
+            date: new Date(),
+            input: {
+                element: '#datepicker-input',
+                format: 'yyyy-MM-dd'
+            }
+        })
+    });
+
+</script>
+
+<th:block th:replace="~{/layouts/layout :: setContent(~{this::content} )}">
+
+    <th:block th:fragment="content">
+        <form action="/create-account" method="post">
+            <div class="form-group">
+
+            </div>
+            <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+                <input type="text" id="datepicker-input" aria-label="Date-Time">
+                <span class="tui-ico-date"></span>
+            </div>
+            <div id="tui-datepicker" style="margin-top: -1px;"></div>
+
+        </form>
+    </th:block>
+
+</th:block>
+</html>

@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>HOME</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet">
 </head>
-<body>
+<th:block th:replace="~{/layouts/layout :: setContent(~{this::content} )}">
 
-</body>
+    <th:block th:fragment="content">
+        <section class="jumbotron text-center bg-white" style="margin-bottom:0">
+            <h1 class="py-5 my-5">LOG IN</h1>
+        </section>
+
+        <div class="login">
+            <div class="login-wrap">
+                <form class="login-input" action="/login" method="post">
+                    <div class="input-box">
+                        <input
+                                id="email"
+                                type="text"
+                                name="email"
+                                placeholder="이메일"
+                                v-model="id"
+                        />
+                        <label for="email" class="ani">이메일</label>
+                    </div>
+
+                    <div class="input-box">
+                        <input
+                                id="password"
+                                type="password"
+                                name="password"
+                                placeholder="비밀번호"
+                                v-model="pwd"
+                        />
+                        <label for="password" class="ani">비밀번호</label>
+                    </div>
+                    <div class="btn-login-group">
+                        <button type="submit" class="btn-login">로그인</button>
+                        <a class="btn-login btn-google">구글 로그인</a>
+                        <a class="btn-login btn-naver">네이버 로그인</a>
+                        <a class="btn-login btn-kakao">
+                            카카오 로그인
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </th:block>
+
+</th:block>
 </html>

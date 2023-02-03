@@ -1,5 +1,6 @@
 package me.kzv.ecommerce.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import me.kzv.ecommerce.domain.member.LocalMember;
 import me.kzv.ecommerce.domain.member.Member;
@@ -20,5 +21,9 @@ public class MemberService {
     public Member createLocalMember(String username, String email, String password, String birthday) {
         Member member = LocalMember.of(username, email, password, birthday, passwordEncoder);
         return memberRepository.save(member);
+    }
+
+    public Member getUserInfo(String email) {
+        return memberRepository.findByEmail(email).orElseThrow(EntityNotFoundException::new);
     }
 }

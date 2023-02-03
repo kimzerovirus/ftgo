@@ -24,9 +24,6 @@ public abstract class Member extends BaseTimeEntity {
     @Column(unique = true)
     private String email;
 
-    @Convert(converter = BooleanToYNConverter.class)
-    private Boolean isVerifiedEmail; // TODO 로컬 가입시 -> 이메일 인증 필요
-
     private LocalDate birthday;
 
     private int mileage; // 적립금
@@ -39,13 +36,12 @@ public abstract class Member extends BaseTimeEntity {
 
     protected Member() {}
 
-    protected Member(String username, String email, LocalDate birthday, Boolean isVerifiedEmail) {
+    protected Member(String username, String email, LocalDate birthday) {
         this.username = username;
         this.email = email;
         this.birthday = birthday;
-        this.isVerifiedEmail = isVerifiedEmail;
         this.mileage = 1000; // 가입시 1000 포인트 기본 제공
         this.authorityType = AuthorityType.USER;
-        this.gradeType = GradeType.IRON;
+        this.gradeType = GradeType.BRONZE;
     }
 }

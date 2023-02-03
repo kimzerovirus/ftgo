@@ -1,6 +1,7 @@
 package me.kzv.ecommerce.config;
 
 import lombok.RequiredArgsConstructor;
+import me.kzv.ecommerce.security.CustomAccessDeniedHandler;
 import me.kzv.ecommerce.security.local.LocalAuthenticationFailureHandler;
 import me.kzv.ecommerce.security.local.LocalAuthenticationProvider;
 import me.kzv.ecommerce.security.local.LocalAuthenticationSuccessHandler;
@@ -22,6 +23,7 @@ public class SecurityConfig {
     private final LocalAuthenticationProvider localAuthenticationProvider;
     private final LocalAuthenticationSuccessHandler localAuthenticationSuccessHandler;
     private final LocalAuthenticationFailureHandler localAuthenticationFailureHandler;
+    private final CustomAccessDeniedHandler accessDeniedHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -29,6 +31,7 @@ public class SecurityConfig {
                 // https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html
                 .authorizeHttpRequests(
                         (authorize) -> authorize
+                                .requestMatchers("/my-page").hasRole("USER")
                                 .anyRequest().permitAll()
                 )
                 // TODO h2-console 사용하기 위해 임시로 풀어둠
@@ -45,8 +48,13 @@ public class SecurityConfig {
                 .permitAll()
 
                 .and()
+                .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandler)
+
+                .and()
                 .userDetailsService(localUserDetailsService)
                 .authenticationProvider(localAuthenticationProvider)
+
         ;
         return http.build();
     }

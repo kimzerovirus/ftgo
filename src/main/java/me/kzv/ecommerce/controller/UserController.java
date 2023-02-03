@@ -1,11 +1,13 @@
 package me.kzv.ecommerce.controller;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import me.kzv.ecommerce.controller.dtos.LocalMemberRequestDto;
 import me.kzv.ecommerce.controller.validators.LocalMemberRequestValidator;
+import me.kzv.ecommerce.domain.member.Member;
 import me.kzv.ecommerce.service.MemberService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -71,5 +73,20 @@ public class UserController {
         }
 
         return "redirect:/";
+    }
+
+    @GetMapping(value = "/my-page")
+    public String mypage(Authentication authentication, Model model){
+        try {
+            Member userInfo = memberService.getUserInfo(authentication.getName());
+            model.addAttribute("username", userInfo.getUsername());
+            model.addAttribute("grade", userInfo.getGradeType());
+            model.addAttribute("mileage", userInfo.getMileage());
+        } catch (EntityNotFoundException e) {
+            model.addAttribute("msg", "존재하지 않는 회원입니다.");
+            model.addAttribute("url", "/");
+            return "common/alert";
+        }
+        return "user/userinfo";
     }
 }

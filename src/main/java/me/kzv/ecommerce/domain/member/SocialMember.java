@@ -19,7 +19,7 @@ public class SocialMember extends Member {
     protected SocialMember() {}
 
     private SocialMember(String username, String email, LocalDate birthday, SocialType socialType) {
-        super(username, email, birthday, true);
+        super(username, email, birthday);
         this.socialType = socialType;
     }
 

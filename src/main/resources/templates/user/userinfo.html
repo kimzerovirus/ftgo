@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>HOME</title>
+    <link th:href="@{/css/userinfo.css}" rel="stylesheet">
+</head>
+<th:block th:replace="~{/layouts/layout :: setContent(~{this::content} )}">
+
+    <th:block th:fragment="content">
+        <div class="container px-4 px-lg-5">
+            <div class="userinfo-wrap">
+                <div>
+                    <p><strong th:text="${username}"></strong>님 반갑습니다.</p>
+                    <p th:text="${grade}"></p>
+                </div>
+            </div>
+        </div>
+    </th:block>
+
+</th:block>
+</html>

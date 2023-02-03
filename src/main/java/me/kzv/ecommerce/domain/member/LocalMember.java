@@ -19,7 +19,7 @@ public class LocalMember extends Member {
     }
 
     private LocalMember(String username, String email, LocalDate birthday, String password) {
-        super(username, email, birthday,false);
+        super(username, email, birthday);
         this.password = password;
     }
 

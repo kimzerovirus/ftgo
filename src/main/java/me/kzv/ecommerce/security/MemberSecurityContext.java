@@ -70,7 +70,6 @@ public record MemberSecurityContext(
 
     @Override
     public boolean isEnabled() {
-//        return member.getIsVerifiedEmail();
         return true;
     }
 }

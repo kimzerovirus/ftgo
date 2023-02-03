@@ -1,6 +1,7 @@
-package me.kzv.ecommerce.security;
+package me.kzv.ecommerce.security.local;
 
 import lombok.RequiredArgsConstructor;
+import me.kzv.ecommerce.security.MemberSecurityContext;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -11,9 +12,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+public class LocalAuthenticationProvider implements AuthenticationProvider {
 
-    private final CustomUserDetailsService userDetailsService;
+    private final LocalUserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -24,7 +25,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         MemberSecurityContext userDetails = (MemberSecurityContext) userDetailsService.loadUserByUsername(email);
 
         if (!passwordEncoder.matches(password, userDetails.getPassword())) {
-            throw new BadCredentialsException("아이디 또는 비밀번호를 확인해주세요");
+            throw new BadCredentialsException("Invalid Email or Password");
         }
 
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());

@@ -1,8 +1,10 @@
 package me.kzv.ecommerce.config;
 
 import lombok.RequiredArgsConstructor;
-import me.kzv.ecommerce.security.CustomAuthenticationProvider;
-import me.kzv.ecommerce.security.CustomUserDetailsService;
+import me.kzv.ecommerce.security.local.LocalAuthenticationFailureHandler;
+import me.kzv.ecommerce.security.local.LocalAuthenticationProvider;
+import me.kzv.ecommerce.security.local.LocalAuthenticationSuccessHandler;
+import me.kzv.ecommerce.security.local.LocalUserDetailsService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +18,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final CustomUserDetailsService customUserDetailsService;
-    private final CustomAuthenticationProvider customAuthenticationProvider;
+    private final LocalUserDetailsService localUserDetailsService;
+    private final LocalAuthenticationProvider localAuthenticationProvider;
+    private final LocalAuthenticationSuccessHandler localAuthenticationSuccessHandler;
+    private final LocalAuthenticationFailureHandler localAuthenticationFailureHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -34,11 +38,15 @@ public class SecurityConfig {
 
                 .formLogin()
                 .loginPage("/login")
+                .loginProcessingUrl("/login-proc")
                 .defaultSuccessUrl("/", true)
+                .successHandler(localAuthenticationSuccessHandler)
+                .failureHandler(localAuthenticationFailureHandler)
+                .permitAll()
 
                 .and()
-                .userDetailsService(customUserDetailsService)
-                .authenticationProvider(customAuthenticationProvider)
+                .userDetailsService(localUserDetailsService)
+                .authenticationProvider(localAuthenticationProvider)
         ;
         return http.build();
     }

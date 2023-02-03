@@ -26,7 +26,7 @@ public record MemberSecurityContext(
 
     @Override
     public String getName() {
-        return member.getEmail();
+        return member.getUsername(); // 실제 고객 이름
     }
 
     @Override
@@ -50,26 +50,27 @@ public record MemberSecurityContext(
 
     @Override
     public String getUsername() {
-        return member.getEmail();
+        return member.getEmail(); // 고객 아이디
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+//        return member.getIsVerifiedEmail();
+        return true;
     }
 }

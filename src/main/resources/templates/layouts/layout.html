@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <th:block th:fragment="setContent(content)">
     <head>
         <meta charset="UTF-8">
@@ -14,7 +14,6 @@
     <body>
     <div style="height: 80px; width:100%;">
         <header id="header">
-
             <!-- navbar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white border-0 ">
                 <div class="container-fluid px-4 px-lg-5">
@@ -38,13 +37,14 @@
                         <a href="/search"><i class="bx bx-search btn" style="font-size: 20px !important;"></i></a>
 
                         <!--        로그아웃시            -->
-                        <i class="bx bx-user" style="font-size: 20px !important;"></i>
-                        <a href="/login" class="text-black text-decoration-none">로그인</a>
-                        <span class="text-muted mx-1">|</span>
-                        <a href="/join" class="text-black text-decoration-none">회원가입</a>
+                        <i class="bx bx-user" style="font-size: 20px !important;" sec:authorize="!isAuthenticated()"></i>
+                        <a href="/login" class="text-black text-decoration-none" sec:authorize="!isAuthenticated()">로그인</a>
+                        <span class="text-muted mx-1" sec:authorize="!isAuthenticated()">|</span>
+                        <a href="/join" class="text-black text-decoration-none" sec:authorize="!isAuthenticated()">회원가입</a>
 
                         <!--        로그인시            -->
-                        <!--<a href="/my-page"><i class="bx bx-user btn" style="font-size: 20px !important;"></i></a>-->
+
+                        <a href="/my-page" sec:authorize="isAuthenticated()"><i class="bx bx-user btn" style="font-size: 20px !important;"></i></a>
                         <a href="/cart"><i class="bx bx-cart btn" style="font-size: 20px !important;"></i></a>
                     </div>
                 </div>

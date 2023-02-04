@@ -34,7 +34,7 @@
 
 .input-box input:focus,
 .input-box input:not(:placeholder-shown) {
-    border-bottom: solid 1px #6868ac;
+    border-bottom: solid 1px #E66B26;
     outline: none;
 }
 
@@ -46,7 +46,7 @@
 
 .input-box input:focus + .input-box label.ani,
 label.ani {
-    color: #6868ac;
+    color: #E66B26;
     font-size: 10pt;
     pointer-events: none;
     position: absolute;
@@ -65,7 +65,7 @@ label.ani {
 .btn-login-group .btn-login {
     display: block;
     text-align: center;
-    background-color: #6868ac;
+    background-color: #E66B26;
     border: none;
     color: white;
     width: 100%;

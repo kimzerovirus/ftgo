@@ -1,9 +1,0 @@
-.userinfo-wrap{
-    display: flex;
-}
-
-.userinfo-wrap > div{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-}

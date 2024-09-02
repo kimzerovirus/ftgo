@@ -1,22 +1,36 @@
 plugins {
     id 'java'
+    id 'java-library' // gradle api 함수 사용시
     id 'org.springframework.boot' version '3.3.3'
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
-group = 'me.kzv'
-version = '0.0.1-SNAPSHOT'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+allprojects {
+    repositories {
+        mavenCentral()
     }
-}
 
-repositories {
-    mavenCentral()
-}
+    apply {
+        plugin("java")
+        plugin("java-library")
+        plugin("org.springframework.boot")
+        plugin("io.spring.dependency-management")
+    }
 
-tasks.named('test') {
-    useJUnitPlatform()
+    group = 'me.kzv'
+    version = '0.0.1-SNAPSHOT'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    dependencies {
+        testImplementation "org.springframework.boot:spring-boot-starter-test"
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 }
